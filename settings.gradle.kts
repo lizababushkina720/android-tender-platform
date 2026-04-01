@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("convention-plugins")
     repositories {
         google {
             content {
@@ -30,3 +31,4 @@ include(":features:profile")
 include(":features:bids")
 include(":features:chat")
 include(":features:common")
+include(":core:network")
