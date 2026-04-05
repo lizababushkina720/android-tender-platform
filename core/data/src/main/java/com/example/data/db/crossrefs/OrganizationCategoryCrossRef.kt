@@ -3,27 +3,28 @@ package com.example.data.db.crossrefs
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
+import com.example.data.db.DatabaseConstants
 import com.example.data.db.entity.CategoryEntity
 import com.example.data.db.entity.OrganizationEntity
 
 @Entity(
-    tableName = "organization_categories",
-    primaryKeys = ["organizationId", "categoryId"],
+    tableName = DatabaseConstants.TABLE_ORGANIZATION_CATEGORIES,
+    primaryKeys = [DatabaseConstants.COLUMN_ORGANIZATION_ID, DatabaseConstants.COLUMN_CATEGORY_ID],
     foreignKeys = [
         ForeignKey(
             entity = OrganizationEntity::class,
-            parentColumns = ["organizationId"],
-            childColumns = ["organizationId"],
+            parentColumns = [DatabaseConstants.COLUMN_ORGANIZATION_ID],
+            childColumns = [DatabaseConstants.COLUMN_ORGANIZATION_ID],
             onDelete = ForeignKey.CASCADE
         ),
         ForeignKey(
             entity = CategoryEntity::class,
-            parentColumns = ["categoryId"],
-            childColumns = ["categoryId"],
+            parentColumns = [ DatabaseConstants.COLUMN_CATEGORY_ID],
+            childColumns = [ DatabaseConstants.COLUMN_CATEGORY_ID],
             onDelete = ForeignKey.CASCADE
         )
     ],
-    indices = [Index("organizationId"), Index("categoryId")]
+    indices = [Index(DatabaseConstants.COLUMN_ORGANIZATION_ID), Index( DatabaseConstants.COLUMN_CATEGORY_ID)]
 )
 data class OrganizationCategoryCrossRef(
     val organizationId: Long,
