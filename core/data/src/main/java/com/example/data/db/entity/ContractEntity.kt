@@ -4,35 +4,36 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import com.example.data.db.DatabaseConstants
 import com.example.data.db.enums.ContractStatus
 import java.math.BigDecimal
 
 @Entity(
-    tableName = "contracts",
+    tableName = DatabaseConstants.TABLE_CONTRACTS,
     foreignKeys = [
         ForeignKey(
             entity = TenderEntity::class,
-            parentColumns = ["tenderId"],
-            childColumns = ["tenderId"],
+            parentColumns = [DatabaseConstants.COLUMN_TENDER_ID],
+            childColumns = [DatabaseConstants.COLUMN_TENDER_ID],
             onDelete = ForeignKey.SET_NULL
         ),
         ForeignKey(
             entity = BidEntity::class,
-            parentColumns = ["bidId"],
-            childColumns = ["winningBidId"],
+            parentColumns = [DatabaseConstants.COLUMN_BID_ID],
+            childColumns = [DatabaseConstants.COLUMN_WINNING_BID_ID],
             onDelete = ForeignKey.SET_NULL
         ),
         ForeignKey(
             entity = OrganizationEntity::class,
-            parentColumns = ["organizationId"],
-            childColumns = ["supplierId"],
+            parentColumns = [DatabaseConstants.COLUMN_ORGANIZATION_ID],
+            childColumns = [DatabaseConstants.COLUMN_SUPPLIER_ID],
             onDelete = ForeignKey.SET_NULL
         )
     ],
     indices = [
-        Index("tenderId"),
-        Index(value = ["winningBidId"], unique = true),
-        Index("supplierId")
+        Index(DatabaseConstants.COLUMN_TENDER_ID),
+        Index(value = [DatabaseConstants.COLUMN_WINNING_BID_ID], unique = true),
+        Index(DatabaseConstants.COLUMN_SUPPLIER_ID)
     ]
 )
 data class ContractEntity(

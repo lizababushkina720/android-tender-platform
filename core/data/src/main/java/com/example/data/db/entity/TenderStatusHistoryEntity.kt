@@ -4,19 +4,20 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import com.example.data.db.DatabaseConstants
 import com.example.data.db.enums.TenderStatus
 
 @Entity(
-    tableName = "tender_status_histories",
+    tableName = DatabaseConstants.TABLE_TENDER_STATUS_HISTORIES,
     foreignKeys = [
         ForeignKey(
             entity = TenderEntity::class,
-            parentColumns = ["tenderId"],
-            childColumns = ["tenderId"],
+            parentColumns = [DatabaseConstants.COLUMN_TENDER_ID],
+            childColumns = [DatabaseConstants.COLUMN_TENDER_ID],
             onDelete = ForeignKey.CASCADE
         )
     ],
-    indices = [Index("tenderId")]
+    indices = [Index(DatabaseConstants.COLUMN_TENDER_ID)]
 )
 data class TenderStatusHistoryEntity(
     @PrimaryKey(autoGenerate = true)
