@@ -1,0 +1,26 @@
+package com.example.data.db
+object DatabaseConstants {
+    const val TABLE_ORGANIZATIONS = "organizations"
+    const val TABLE_ORGANIZATION_CATEGORIES = "organization_categories"
+    const val TABLE_CATEGORIES = "categories"
+    const val TABLE_TENDERS = "tenders"
+    const val TABLE_BIDS = "bids"
+    const val TABLE_CONTRACTS = "contracts"
+    const val TABLE_ATTACHMENTS = "attachments"
+    const val TABLE_TENDER_STATUS_HISTORIES = "tender_status_histories"
+    const val TABLE_TENDER_CATEGORIES = "tender_categories"
+    const val COLUMN_ORGANIZATION_ID = "organizationId"
+    const val COLUMN_TENDER_ID = "tenderId"
+    const val COLUMN_BID_ID = "bidId"
+    const val COLUMN_CATEGORY_ID = "categoryId"
+    const val COLUMN_CONTRACT_ID = "contractId"
+    const val COLUMN_EMAIL = "email"
+    const val COLUMN_STATUS = "status"
+    const val COLUMN_CUSTOMER_ID = "customerId"
+    const val COLUMN_SUPPLIER_ID = "supplierId"
+    const val COLUMN_EXECUTOR_ID = "executorId"
+    const val COLUMN_CODE="code"
+    const val COLUMN_WINNING_BID_ID="winningBidId"
+    const val COLUMN_INN = "inn"
+
+}
